@@ -41,7 +41,7 @@ public class Employee {
 //        Employee newEmployee = new Employee(surname, name, patronymic, department, salary, id); //surname, name, patronymic, department, salary, id
         Employee newEmployee = new Employee(); //surname, name, patronymic, department, salary, id
         employees[counter++] = newEmployee;
-        this.id = counter++;
+        this.id = counter;
 
     }
 

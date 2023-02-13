@@ -3,42 +3,49 @@ package Coursework;
 import java.util.Arrays;
 
 public class Employee {
-    private  Employee[] employee = new Employee[10];
+    private static  Employee[] employees;
     private String surname;
     private String name;
     private String patronymic;
     private int department;
     private int salary;
-    private int id;
-    private int counter =0;
+    private int id = 0;
+    private static int counter = 0;
 
-//    public Employee() {
-//        this.employee = Arrays.toString(new Employee[10]);
+//        public Employee() {
+//        this.employees = new Employee[10];
 //    }
-    public  Employee(String surname, String name, String patronymic, int department, int salary, int id) {
+    public Employee(String surname, String name, String patronymic, int department, int salary, int id) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
         this.department = department;
         this.salary = salary;
         this.id = id;
+        employees = new Employee[10];
     }
+
     public Employee() {
     }
 
     public void addEmployee(String surname, String name, String patronymic, int department, int salary, int id) {
-        if (counter >= employee.length) {
-            System.out.println("Нельзя добавить сотрудника, закончилось место");
-        }
+//        if (counter >= employees.length) {
+//            System.out.println("Нельзя добавить сотрудника, закончилось место");
+//        }
         Employee newEmployee = new Employee(surname, name, patronymic, department, salary, id); //surname, name, patronymic, department, salary, id
-        employee[counter++] = newEmployee;
+        employees[counter++] = newEmployee;
+        this.id = counter++;
+
     }
+
     public String getSurname() {
         return this.surname;
     }
+
     public String getName() {
         return this.name;
     }
+
     public String getPatronymic() {
         return this.patronymic;
     }
@@ -76,10 +83,14 @@ public class Employee {
                 '}';
     }
 
-//    public void printAllEmployee() {
-//        for (int=0; )
+    public static void printAllEmployees() {
+        for (int i = 0; i < 5; i++) {
+        Employee employee = employees[i];
+            System.out.println(employee.getName() + employee.getSurname());
+        }
 
     }
+}
 
 
 

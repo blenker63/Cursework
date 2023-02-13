@@ -15,24 +15,31 @@ public class Employee {
         public Employee() {
         this.employees = new Employee[10];
     }
-    public Employee(String surname, String name, String patronymic, int department, int salary, int id) {
+//    public Employee(String surname, String name, String patronymic, int department, int salary, int id) {
+//        this.surname = surname;
+//        this.name = name;
+//        this.patronymic = patronymic;
+//        this.department = department;
+//        this.salary = salary;
+//        this.id = id;
+//        employees = new Employee[10];
+//    }
+
+//    public Employee() {
+//    }
+
+    public void addEmployee(String surname, String name, String patronymic, int department, int salary, int id) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
         this.department = department;
         this.salary = salary;
         this.id = id;
-//        employees = new Employee[10];
-    }
-
-//    public Employee() {
-//    }
-
-    public void addEmployee(String surname, String name, String patronymic, int department, int salary, int id) {
 //        if (counter >= employees.length) {
 //            System.out.println("Нельзя добавить сотрудника, закончилось место");
 //        }
-        Employee newEmployee = new Employee(surname, name, patronymic, department, salary, id); //surname, name, patronymic, department, salary, id
+//        Employee newEmployee = new Employee(surname, name, patronymic, department, salary, id); //surname, name, patronymic, department, salary, id
+        Employee newEmployee = new Employee(); //surname, name, patronymic, department, salary, id
         employees[counter++] = newEmployee;
         this.id = counter++;
 
@@ -84,7 +91,7 @@ public class Employee {
     }
 
     public static void printAllEmployees() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
         Employee employee = employees[i];
             System.out.println(employee.getName() + employee.getSurname());
         }

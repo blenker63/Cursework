@@ -8,6 +8,7 @@ public class coursework {
 //        employee.addEmployee("Сидоров", "Иван", "Иванович", 1, 10000, 3);
 //        Employee.printAllEmployees();
         System.out.println(employee.getName());
+        System.out.println();
     }
 }
 

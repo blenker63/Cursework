@@ -12,9 +12,9 @@ public class Employee {
     private int id = 0;
     private static int counter = 0;
 
-//        public Employee() {
-//        this.employees = new Employee[10];
-//    }
+        public Employee() {
+        this.employees = new Employee[10];
+    }
     public Employee(String surname, String name, String patronymic, int department, int salary, int id) {
         this.surname = surname;
         this.name = name;
@@ -22,11 +22,11 @@ public class Employee {
         this.department = department;
         this.salary = salary;
         this.id = id;
-        employees = new Employee[10];
+//        employees = new Employee[10];
     }
 
-    public Employee() {
-    }
+//    public Employee() {
+//    }
 
     public void addEmployee(String surname, String name, String patronymic, int department, int salary, int id) {
 //        if (counter >= employees.length) {

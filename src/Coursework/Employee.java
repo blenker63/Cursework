@@ -8,11 +8,11 @@ public class Employee {
     private String patronymic;
     private int department;
     private int salary;
-    private int counter = 0;
-    private int id;
+    private static int counter = 0;
+    private static int id;
 
 
-    public Employee(String surname, String name, String patronymic, int department, int salary, int id) {
+    public Employee(String surname, String name, String patronymic, int department, int salary) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -51,15 +51,15 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void addEmployee(String surname, String name, String patronymic, int department, int salary, int id) {
+    public void addEmployee(String surname, String name, String patronymic, int department, int salary) {
         if (counter >= employees.length) {
             System.out.println("Нельзя добавить сотрудника, закончилось место");
         }
-        Employee newEmployee = new Employee(surname, name, patronymic, department, salary, id);
+        Employee newEmployee = new Employee(surname, name, patronymic, department, salary);
         employees[counter++] = newEmployee;
-        this.id = counter;
-        System.out.println(counter);
-        System.out.println(this.id);
+        id = counter;
+//        System.out.println(counter);
+//        System.out.println(id);
 //        System.out.println(this.name);
     }
     @Override
@@ -71,7 +71,7 @@ public class Employee {
                 ", department=" + department +
                 ", salary=" + salary +
                 ", counter=" + counter +
-                ", id=" + this.id +
+                ", id=" + id +
                  '}';
     }
 
@@ -80,7 +80,10 @@ public class Employee {
         Employee employee = employees[i];
            System.out.println(employee);
         }
+    }
 
+    public int getCurrentSize() {
+        return counter;
     }
 }
 

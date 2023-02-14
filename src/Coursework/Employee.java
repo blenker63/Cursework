@@ -9,7 +9,7 @@ public class Employee {
     private int department;
     private int salary;
     private int counter = 0;
-    private int id = 0;
+    private int id;
 
 
     public Employee(String surname, String name, String patronymic, int department, int salary, int id) {
@@ -18,13 +18,13 @@ public class Employee {
         this.patronymic = patronymic;
         this.department = department;
         this.salary = salary;
-        this.id = id;
+        this.id = counter;
     }
     public Employee[] employees; {
-        employees = new Employee[10];
     }
 
     public Employee() {
+        this.employees = new Employee[10];
     }
     public String getSurname() {
         return this.surname;
@@ -55,25 +55,23 @@ public class Employee {
         if (counter >= employees.length) {
             System.out.println("Нельзя добавить сотрудника, закончилось место");
         }
-        Employee newEmployee = new Employee();
+        Employee newEmployee = new Employee(surname, name, patronymic, department, salary, id);
         employees[counter++] = newEmployee;
-//        this.counter = counter + 1;
-        this.id = this.counter;
-//        System.out.println(counter);
-//        System.out.println(this.id);
+        this.id = counter;
+        System.out.println(counter);
+        System.out.println(this.id);
 //        System.out.println(this.name);
     }
-
     @Override
     public String toString() {
         return "Employee{" +
-                "surname='" + getSurname() + '\'' +
+                "surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
                 ", department=" + department +
-                ", salary=" + this.salary +
+                ", salary=" + salary +
                 ", counter=" + counter +
-                ", id=" + id +
+                ", id=" + this.id +
                  '}';
     }
 

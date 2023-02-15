@@ -8,8 +8,9 @@ public class Employee {
     private String patronymic;
     private int department;
     private int salary;
-    private static int counter = 0;
+    static int counter = 0;
     private static int id;
+    private int size = 0;
 
 
     public Employee(String surname, String name, String patronymic, int department, int salary) {
@@ -18,7 +19,9 @@ public class Employee {
         this.patronymic = patronymic;
         this.department = department;
         this.salary = salary;
-        this.id = counter;
+        Employee.id = id;
+//        this.id = counter++;
+//        counter++;
     }
     public Employee[] employees; {
     }
@@ -57,22 +60,18 @@ public class Employee {
         }
         Employee newEmployee = new Employee(surname, name, patronymic, department, salary);
         employees[counter++] = newEmployee;
-        id = counter;
+        Employee.id = counter;
 //        System.out.println(counter);
 //        System.out.println(id);
 //        System.out.println(this.name);
     }
     @Override
     public String toString() {
-        return "Employee{" +
-                "surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", department=" + department +
-                ", salary=" + salary +
-                ", counter=" + counter +
-                ", id=" + id +
-                 '}';
+        return "ФИО: '" + getSurname() + '\''
+                 + getName() + '\''
+                 + getPatronymic() + '\'' +
+                ", отдел - " + getDepartment() +
+                ", зфплата - " + getSalary();
     }
 
     public void printAllEmployee() {

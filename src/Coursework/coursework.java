@@ -7,6 +7,7 @@ public class coursework {
         employee.addEmployee("Петров", "Петр", "Петрович", 2, 20000);
         employee.addEmployee("Сидоров", "Сидор", "Сидорович", 3, 30000);
         employee.addEmployee("Васильев", "Василий", "Иванович", 4, 40000);
+        System.out.println("Данные сотрудников");
         employee.printAllEmployee();
         System.out.println("Количество сотрудников - " + employee.getCurrentSize());
     }

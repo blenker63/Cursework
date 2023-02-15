@@ -19,37 +19,48 @@ public class Employee {
         this.patronymic = patronymic;
         this.department = department;
         this.salary = salary;
-        Employee.id = id;
+        this.id = id;
 //        this.id = counter++;
 //        counter++;
     }
-    public Employee[] employees; {
+
+    public Employee[] employees;
+
+    {
     }
 
     public Employee() {
         this.employees = new Employee[10];
     }
+
     public String getSurname() {
         return this.surname;
     }
-    public  String getName() {
+
+    public String getName() {
         return this.name;
     }
+
     public String getPatronymic() {
         return this.patronymic;
     }
+
     public int getDepartment() {
         return this.department;
     }
+
     public int getSalary() {
         return this.salary;
     }
+
     public int getId() {
         return this.id;
     }
+
     public void setDepartment(int department) {
         this.department = department;
     }
+
     public void setSalary(int salary) {
         this.salary = salary;
     }
@@ -60,31 +71,82 @@ public class Employee {
         }
         Employee newEmployee = new Employee(surname, name, patronymic, department, salary);
         employees[counter++] = newEmployee;
-        Employee.id = counter;
+        id = counter;
 //        System.out.println(counter);
 //        System.out.println(id);
 //        System.out.println(this.name);
     }
+
     @Override
     public String toString() {
         return "ФИО: '" + getSurname() + '\''
-                 + getName() + '\''
-                 + getPatronymic() + '\'' +
+                + getName() + '\''
+                + getPatronymic() + '\'' +
                 ", отдел - " + getDepartment() +
-                ", зфплата - " + getSalary();
+                ", зарплата - " + getSalary();
     }
 
     public void printAllEmployee() {
         for (int i = 0; i < counter; i++) {
-        Employee employee = employees[i];
-           System.out.println(employee);
+            Employee employee = employees[i];
+            System.out.println(employee);
         }
     }
 
     public int getCurrentSize() {
         return counter;
     }
-}
+
+    public int SumSalary() {
+        int sumSalary = 0;
+        for (int i = 0; i < counter; i++) {
+            Employee employee = employees[i];
+            sumSalary = sumSalary + employee.getSalary();
+        }
+        return sumSalary;
+    }
+
+    public int MaxSalaryMonth() {
+        int maxSalaryMonth = 0;
+        String employeeMaxSalary;
+        for (int i = 0; i < counter; i++) {
+            Employee employee = employees[i];
+            if (employee.getSalary() > maxSalaryMonth) ;
+            maxSalaryMonth = employee.getSalary();
+        }
+        return maxSalaryMonth;
+    }
+
+    public void EmployeeMaxSalary() {
+        int maxSalaryMonth = 0;
+//        Employee EmployeeMaxSalary[];
+        Employee employeeMaxSalary = null;
+        for (int i = 0; i < counter; i++) {
+            Employee employee = employees[i];
+            if (employee.getSalary() > maxSalaryMonth){
+                employeeMaxSalary = employees[i];
+        }
+            System.out.println("Сотрудник с самой высокой з/платой - " + employeeMaxSalary);
+        }
+
+    public void  EmployeeMinSalary() {
+        int minSalaryMonth = 1_000_000;
+        Employee employeeMinSalary = null;
+        for (int i = 0; i < counter; i++) {
+            Employee employee = employees[i];
+                if (employee.getSalary() < minSalaryMonth);
+            employeeMinSalary = employees[i];
+                }
+        System.out.println("Сотрудник с самой низкой з/платой - " + employeeMinSalary);
+            }
+        }
+
+
+
+
+
+
+
 
 
 

@@ -126,8 +126,9 @@ public class Employee {
             employeeMinSalary = employees[idMinSalary - 1];
             System.out.println("Сотрудник с самой низкой з/платой: " + employeeMinSalary);
     }
-    public int averageSalary() {
-        int averageSalary  =  sumSalary() / counter ;
+    public String averageSalary() {
+        float average  =  (float) sumSalary() / counter ;
+        String averageSalary = String.format("%.2f", average);
         return averageSalary;
     }
     public void employeeList() {

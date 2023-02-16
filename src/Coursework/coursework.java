@@ -11,7 +11,9 @@ public class coursework {
         employee.printAllEmployee();
         System.out.println("Количество сотрудников - " + employee.getCurrentSize());
         System.out.println("Сумма затрат на з/плату в месяц -  " + employee.SumSalary());
-        employee.EmployeeMaxSalary();
+//        System.out.println(employee.MaxSalaryMonth());
+//        System.out.println(employee.EmployeeMaxSalary());
+        employee.employeeMaxSalary();
         employee.EmployeeMinSalary();
     }
 }

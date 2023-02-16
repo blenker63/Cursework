@@ -1,16 +1,20 @@
 package Coursework;
 
-import java.util.Arrays;
-
 public class Employee {
+    public Employee[] employees;
     private String surname;
     private String name;
     private String patronymic;
     private int department;
     private int salary;
-    static int counter = 0;
-    private static int id;
-    private int size = 0;
+    private int counter = 0;
+    private  int id;
+//    private int size = 0;
+    private int i;
+//    private int indexMaxSalary;
+     private static int x = 0;
+    private Employee employee;
+
 
 
     public Employee(String surname, String name, String patronymic, int department, int salary) {
@@ -19,16 +23,10 @@ public class Employee {
         this.patronymic = patronymic;
         this.department = department;
         this.salary = salary;
-        this.id = id;
-//        this.id = counter++;
-//        counter++;
+        counter = 1 + x++;
+        id = counter;
+
     }
-
-    public Employee[] employees;
-
-    {
-    }
-
     public Employee() {
         this.employees = new Employee[10];
     }
@@ -71,10 +69,6 @@ public class Employee {
         }
         Employee newEmployee = new Employee(surname, name, patronymic, department, salary);
         employees[counter++] = newEmployee;
-        id = counter;
-//        System.out.println(counter);
-//        System.out.println(id);
-//        System.out.println(this.name);
     }
 
     @Override
@@ -83,7 +77,7 @@ public class Employee {
                 + getName() + '\''
                 + getPatronymic() + '\'' +
                 ", отдел - " + getDepartment() +
-                ", зарплата - " + getSalary();
+                ", зарплата - " + getSalary() + ", id - " + getId() + ", counter - " + counter;
     }
 
     public void printAllEmployee() {
@@ -91,6 +85,7 @@ public class Employee {
             Employee employee = employees[i];
             System.out.println(employee);
         }
+//            System.out.println("Сотрудник с самой высокой з/платой - " + employees.employeeMaxSalary());
     }
 
     public int getCurrentSize() {
@@ -106,40 +101,52 @@ public class Employee {
         return sumSalary;
     }
 
-    public int MaxSalaryMonth() {
-        int maxSalaryMonth = 0;
-        String employeeMaxSalary;
-        for (int i = 0; i < counter; i++) {
-            Employee employee = employees[i];
-            if (employee.getSalary() > maxSalaryMonth) ;
-            maxSalaryMonth = employee.getSalary();
-        }
-        return maxSalaryMonth;
-    }
+//    public int MaxSalaryMonth() {
+//        int maxSalaryMonth = 0;
+//        int idMaxSalary = 0;
+//        for (int i = 0; i < counter; i++) {
+//            if (employees[i].getSalary() > maxSalaryMonth) {
+//                maxSalaryMonth = employees[i].getSalary();
+//                idMaxSalary = employees[i].getId();
+//            }
+//            System.out.println(idMaxSalary);
+//            System.out.println(employees[i].getId());
+//        }
+//        System.out.println(maxSalaryMonth);
+//        System.out.println(employees[idMaxSalary - 1]);
+//        return maxSalaryMonth;
+//    }
 
-    public void EmployeeMaxSalary() {
+    public void employeeMaxSalary() {
         int maxSalaryMonth = 0;
-//        Employee EmployeeMaxSalary[];
+        int idMaxSalary  = 0;
         Employee employeeMaxSalary = null;
         for (int i = 0; i < counter; i++) {
-            Employee employee = employees[i];
-            if (employee.getSalary() > maxSalaryMonth){
-                employeeMaxSalary = employees[i];
-        }
-            System.out.println("Сотрудник с самой высокой з/платой - " + employeeMaxSalary);
-        }
-
-    public void  EmployeeMinSalary() {
-        int minSalaryMonth = 1_000_000;
-        Employee employeeMinSalary = null;
-        for (int i = 0; i < counter; i++) {
-            Employee employee = employees[i];
-                if (employee.getSalary() < minSalaryMonth);
-            employeeMinSalary = employees[i];
-                }
-        System.out.println("Сотрудник с самой низкой з/платой - " + employeeMinSalary);
+            if (employees[i].getSalary() > maxSalaryMonth) {
+                maxSalaryMonth = employees[i].getSalary();
+                idMaxSalary = employees[i].getId();
             }
+//            System.out.println(idMaxSalary);  // проверка определения id сотрудника с максимальной з/платой
         }
+            employeeMaxSalary  = employees[idMaxSalary - 1];
+            System.out.println("Сотрудник с самой высокой з/платой - " +  employeeMaxSalary);
+    }
+
+        public void EmployeeMinSalary () {
+            int minSalaryMonth = 1_000_000;
+            Employee employeeMinSalary = null;
+            for (int i = 0; i < counter; i++) {
+                Employee employee = employees[i];
+                if (employee.getSalary() < minSalaryMonth) ;
+               employeeMinSalary = employees[i];
+            }
+            System.out.println("Сотрудник с самой низкой з/платой - " + employeeMinSalary);
+        }
+    }
+
+
+
+
 
 
 

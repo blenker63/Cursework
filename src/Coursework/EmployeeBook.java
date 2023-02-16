@@ -1,4 +1,4 @@
-package Cursework;
+package Coursework;
 
 public class EmployeeBook {
 }

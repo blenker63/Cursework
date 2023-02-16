@@ -75,13 +75,13 @@ public class Employee {
                 + getName() + '\''
                 + getPatronymic() + '\'' +
                 ", отдел - " + getDepartment() +
-                ", зарплата - " + getSalary(); //+ ", id - " + getId() + ", counter - " + counter;
+                ", зарплата, рублей - " + getSalary() //+ ", id - " + getId() + ", counter - " + counter
+     + ";";
     }
 
     public void printAllEmployee() {
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
-//            System.out.println(id);
             System.out.println(employee);
         }
     }
@@ -90,32 +90,14 @@ public class Employee {
         return counter;
     }
 
-    public int SumSalary() {
+    public int sumSalary() {
         int sumSalary = 0;
-        int averageSalary;
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
             sumSalary = sumSalary + employee.getSalary();
         }
         return  sumSalary;
-
     }
-
-//    public int MaxSalaryMonth() {
-//        int maxSalaryMonth = 0;
-//        int idMaxSalary = 0;
-//        for (int i = 0; i < counter; i++) {
-//            if (employees[i].getSalary() > maxSalaryMonth) {
-//                maxSalaryMonth = employees[i].getSalary();
-//                idMaxSalary = employees[i].getId();
-//            }
-//            System.out.println(idMaxSalary);
-//            System.out.println(employees[i].getId());
-//        }
-//        System.out.println(maxSalaryMonth);
-//        System.out.println(employees[idMaxSalary - 1]);
-//        return maxSalaryMonth;
-//    }
 
     public void employeeMaxSalary() {
         int maxSalaryMonth = 0;
@@ -126,7 +108,6 @@ public class Employee {
                 maxSalaryMonth = employees[i].getSalary();
                 idMaxSalary = employees[i].getId();
             }
-//            System.out.println(idMaxSalary);  // проверка определения id сотрудника с максимальной з/платой
         }
             employeeMaxSalary  = employees[idMaxSalary - 1];
             System.out.println("Сотрудник с самой высокой з/платой - " +  employeeMaxSalary);
@@ -137,17 +118,25 @@ public class Employee {
             int idMinSalary  = 0;
             Employee employeeMinSalary = null;
             for (int i = 0; i < counter; i++) {
-//                Employee employee = employees[i];
                 if (employees[i].getSalary() < minSalaryMonth) {
                 minSalaryMonth = employees[i].getSalary();
                 idMinSalary = employees[i].getId();
-//               employeeMinSalary = employees[i];
             }
         }
             employeeMinSalary = employees[idMinSalary - 1];
             System.out.println("Сотрудник с самой низкой з/платой - " + employeeMinSalary);
     }
+    public int averageSalary() {
+        int averageSalary  =  sumSalary() / counter ;
+        return averageSalary;
     }
+    public void employeeList() {
+        for (int i = 0; i < counter; i++) {
+            Employee employee = employees[i];
+            System.out.println(employees[i].getSurname());
+        }
+    }
+}
 
 
 

@@ -7,14 +7,17 @@ public class coursework {
         employee.addEmployee("Петров", "Петр", "Петрович", 2, 40000);
         employee.addEmployee("Сидоров", "Сидор", "Сидорович", 3, 30000);
         employee.addEmployee("Васильев", "Василий", "Иванович", 4, 20000);
-        employee.addEmployee("Соловьев", "Степан", "Васильевич", 2, 24000);
-        employee.addEmployee("Степанов", "Григорий", "Михайлович", 1, 32000);
+        employee.addEmployee("Соловьев", "Степан", "Васильевич", 2, 25000);
+        employee.addEmployee("Степанов", "Григорий", "Михайлович", 5, 32000);
         System.out.println("Данные сотрудников");
         employee.printAllEmployee();
         System.out.println("Количество сотрудников - " + employee.getCurrentSize());
-        System.out.println("Сумма затрат на з/плату в месяц -  " + employee.SumSalary() + " рублей.");
+        System.out.println("Сумма затрат на з/плату в месяц -  " + employee.sumSalary() + " рублей.");
         employee.employeeMaxSalary();
         employee.employeeMinSalary();
+        System.out.println("Среднее значение з/плат - " + employee.averageSalary() + " рублей.");
+        System.out.println("Список сотрудников");
+        employee.employeeList();
     }
 }
 

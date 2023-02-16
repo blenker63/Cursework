@@ -71,7 +71,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "id - " + getId() + "  " + "ФИО: '" + getSurname() + '\''
+        return "id: " + getId() + "  " + "ФИО: '" + getSurname() + '\''
                 + getName() + '\''
                 + getPatronymic() + '\'' +
                 ", отдел - " + getDepartment() +
@@ -110,7 +110,7 @@ public class Employee {
             }
         }
             employeeMaxSalary  = employees[idMaxSalary - 1];
-            System.out.println("Сотрудник с самой высокой з/платой - " +  employeeMaxSalary);
+            System.out.println("Сотрудник с самой высокой з/платой: " +  employeeMaxSalary);
     }
 
         public void employeeMinSalary () {
@@ -124,7 +124,7 @@ public class Employee {
             }
         }
             employeeMinSalary = employees[idMinSalary - 1];
-            System.out.println("Сотрудник с самой низкой з/платой - " + employeeMinSalary);
+            System.out.println("Сотрудник с самой низкой з/платой: " + employeeMinSalary);
     }
     public int averageSalary() {
         int averageSalary  =  sumSalary() / counter ;
@@ -133,7 +133,9 @@ public class Employee {
     public void employeeList() {
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
-            System.out.println(employees[i].getSurname());
+
+            System.out.println("№ п/п " + employees[i].getId() + "    " + employees[i].getSurname() + " "
+                    +  employees[i].getName() + " " + employees[i].getPatronymic() + ";");
         }
     }
 }

@@ -11,11 +11,17 @@ public class coursework {
         employee.addEmployee("Степанов", "Григорий", "Михайлович", 5, 32000);
         System.out.println("Данные сотрудников");
         employee.printAllEmployee();
+        System.out.println();
         System.out.println("Количество сотрудников - " + employee.getCurrentSize());
+        System.out.println();
         System.out.println("Сумма затрат на з/плату в месяц -  " + employee.sumSalary() + " рублей.");
+        System.out.println();
         employee.employeeMaxSalary();
+        System.out.println();
         employee.employeeMinSalary();
+        System.out.println();
         System.out.println("Среднее значение з/плат - " + employee.averageSalary() + " рублей.");
+        System.out.println();
         System.out.println("Список сотрудников");
         employee.employeeList();
     }

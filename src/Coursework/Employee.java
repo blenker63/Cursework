@@ -9,11 +9,9 @@ public class Employee {
     private int salary;
     private int counter = 0;
     private  int id;
-//    private int size = 0;
     private int i;
-//    private int indexMaxSalary;
      private static int x = 0;
-    private Employee employee;
+
 
 
 
@@ -73,19 +71,19 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "ФИО: '" + getSurname() + '\''
+        return "id - " + getId() + "  " + "ФИО: '" + getSurname() + '\''
                 + getName() + '\''
                 + getPatronymic() + '\'' +
                 ", отдел - " + getDepartment() +
-                ", зарплата - " + getSalary() + ", id - " + getId() + ", counter - " + counter;
+                ", зарплата - " + getSalary(); //+ ", id - " + getId() + ", counter - " + counter;
     }
 
     public void printAllEmployee() {
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
+//            System.out.println(id);
             System.out.println(employee);
         }
-//            System.out.println("Сотрудник с самой высокой з/платой - " + employees.employeeMaxSalary());
     }
 
     public int getCurrentSize() {
@@ -94,11 +92,13 @@ public class Employee {
 
     public int SumSalary() {
         int sumSalary = 0;
+        int averageSalary;
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
             sumSalary = sumSalary + employee.getSalary();
         }
-        return sumSalary;
+        return  sumSalary;
+
     }
 
 //    public int MaxSalaryMonth() {
@@ -132,16 +132,21 @@ public class Employee {
             System.out.println("Сотрудник с самой высокой з/платой - " +  employeeMaxSalary);
     }
 
-        public void EmployeeMinSalary () {
+        public void employeeMinSalary () {
             int minSalaryMonth = 1_000_000;
+            int idMinSalary  = 0;
             Employee employeeMinSalary = null;
             for (int i = 0; i < counter; i++) {
-                Employee employee = employees[i];
-                if (employee.getSalary() < minSalaryMonth) ;
-               employeeMinSalary = employees[i];
+//                Employee employee = employees[i];
+                if (employees[i].getSalary() < minSalaryMonth) {
+                minSalaryMonth = employees[i].getSalary();
+                idMinSalary = employees[i].getId();
+//               employeeMinSalary = employees[i];
             }
-            System.out.println("Сотрудник с самой низкой з/платой - " + employeeMinSalary);
         }
+            employeeMinSalary = employees[idMinSalary - 1];
+            System.out.println("Сотрудник с самой низкой з/платой - " + employeeMinSalary);
+    }
     }
 
 

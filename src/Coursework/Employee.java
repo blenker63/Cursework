@@ -1,17 +1,14 @@
 package Coursework;
-
 public class Employee {
-    public Employee[] employees;
+
     private String surname;
     private String name;
     private String patronymic;
     private int department;
     private int salary;
-    private int counter = 0;
+    private  int counter = 0;
     private  int id;
-    private int i;
-     private static int x = 0;
-
+    private static int x =0;
 
 
 
@@ -22,9 +19,10 @@ public class Employee {
         this.department = department;
         this.salary = salary;
         counter = 1 + x++;
+//        counter = counter;
         id = counter;
-
     }
+    public Employee[] employees;
     public Employee() {
         this.employees = new Employee[10];
     }
@@ -53,6 +51,7 @@ public class Employee {
         return this.id;
     }
 
+
     public void setDepartment(int department) {
         this.department = department;
     }
@@ -61,9 +60,13 @@ public class Employee {
         this.salary = salary;
     }
 
+
     public void addEmployee(String surname, String name, String patronymic, int department, int salary) {
         if (counter >= employees.length) {
+            this.id = ++counter;
             System.out.println("Нельзя добавить сотрудника, закончилось место");
+//            System.out.println(employees.length);
+//            System.out.println(counter);
         }
         Employee newEmployee = new Employee(surname, name, patronymic, department, salary);
         employees[counter++] = newEmployee;
@@ -103,12 +106,14 @@ public class Employee {
         int maxSalaryMonth = 0;
         int idMaxSalary  = 0;
         Employee employeeMaxSalary = null;
+//        String employeeMaxSalary = " ";
         for (int i = 0; i < counter; i++) {
             if (employees[i].getSalary() > maxSalaryMonth) {
                 maxSalaryMonth = employees[i].getSalary();
                 idMaxSalary = employees[i].getId();
             }
         }
+//            employeeMaxSalary  = employees[i];
             employeeMaxSalary  = employees[idMaxSalary - 1];
             System.out.println("Сотрудник с самой высокой з/платой: " +  employeeMaxSalary);
     }

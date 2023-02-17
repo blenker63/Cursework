@@ -1,14 +1,13 @@
 package Coursework;
 public class Employee {
-
     private String surname;
     private String name;
     private String patronymic;
     private int department;
     private int salary;
-    private  int counter = 0;
+    private static int counter = 0;
     private  int id;
-    private static int x =0;
+
 
 
 
@@ -18,13 +17,9 @@ public class Employee {
         this.patronymic = patronymic;
         this.department = department;
         this.salary = salary;
-        counter = 1 + x++;
-//        counter = counter;
-        id = counter;
-    }
-    public Employee[] employees;
-    public Employee() {
-        this.employees = new Employee[10];
+        this.id = counter + 1;
+//        System.out.println(counter); // проверка счетчика
+//        System.out.println(id); // проверка id
     }
 
     public String getSurname() {
@@ -46,12 +41,9 @@ public class Employee {
     public int getSalary() {
         return this.salary;
     }
-
     public int getId() {
         return this.id;
     }
-
-
     public void setDepartment(int department) {
         this.department = department;
     }
@@ -59,19 +51,17 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
-
-
+    public Employee[] employees;
+    public Employee() {
+        this.employees = new Employee[10]; // объявление длины массива
+    }
     public void addEmployee(String surname, String name, String patronymic, int department, int salary) {
         if (counter >= employees.length) {
-            this.id = ++counter;
             System.out.println("Нельзя добавить сотрудника, закончилось место");
-//            System.out.println(employees.length);
-//            System.out.println(counter);
         }
         Employee newEmployee = new Employee(surname, name, patronymic, department, salary);
         employees[counter++] = newEmployee;
     }
-
     @Override
     public String toString() {
         return "id: " + getId() + "  " + "ФИО: '" + getSurname() + '\''
@@ -81,39 +71,33 @@ public class Employee {
                 ", зарплата, рублей - " + getSalary() //+ ", id - " + getId() + ", counter - " + counter
      + ";";
     }
-
     public void printAllEmployee() {
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
             System.out.println(employee);
         }
     }
-
     public int getCurrentSize() {
         return counter;
     }
-
     public int sumSalary() {
         int sumSalary = 0;
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
-            sumSalary = sumSalary + employee.getSalary();
+            sumSalary = sumSalary + employees[i].getSalary();
         }
         return  sumSalary;
     }
-
     public void employeeMaxSalary() {
         int maxSalaryMonth = 0;
         int idMaxSalary  = 0;
         Employee employeeMaxSalary = null;
-//        String employeeMaxSalary = " ";
         for (int i = 0; i < counter; i++) {
             if (employees[i].getSalary() > maxSalaryMonth) {
                 maxSalaryMonth = employees[i].getSalary();
                 idMaxSalary = employees[i].getId();
             }
         }
-//            employeeMaxSalary  = employees[i];
             employeeMaxSalary  = employees[idMaxSalary - 1];
             System.out.println("Сотрудник с самой высокой з/платой: " +  employeeMaxSalary);
     }

@@ -1,7 +1,6 @@
 package Coursework;
 
 public class EmployeeManagement {
-//    public Employee[] employees;
     private Employee[] employees;
     private int size;
     private static int counter = 0;
@@ -16,15 +15,7 @@ public class EmployeeManagement {
         Employee newEmployee = new Employee(surname, name, patronymic, department, salary);
         employees[counter++] = newEmployee;
     }
-//    @Override
-//    public String toString() {
-//        return "id: " + employees.getId() + "  " + "ФИО: '" + getSurname() + '\''
-//                + getName() + '\''
-//                + getPatronymic() + '\'' +
-//                ", отдел - " + getDepartment() +
-//                ", зарплата, рублей - " + getSalary() //+ ", id - " + getId() + ", counter - " + counter
-//                + ";";
-//    }
+
     public void printAllEmployee() {
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
